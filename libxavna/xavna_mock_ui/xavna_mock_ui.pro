@@ -7,7 +7,7 @@
 QT       += widgets
 CONFIG += shared
 
-QMAKE_CXXFLAGS += -Wextra -std=c++11 -I/usr/local/include -I../../include
+QMAKE_CXXFLAGS += -Wextra -std=c++11 -I/usr/local/include -I../../include -I/opt/homebrew/Cellar/eigen/3.4.0_1/include/
 QMAKE_CXXFLAGS += -DEIGEN_DONT_VECTORIZE -DEIGEN_DISABLE_UNALIGNED_ARRAY_ASSERT
 android: QMAKE_CXXFLAGS += -DANDROID_WORKAROUNDS
 

@@ -19,7 +19,7 @@ QTPLUGIN.imageformats += svg
 #QMAKE_LFLAGS += --static -lexpat -lz -lXext -lXau -lbsd -lXdmcp
 #QMAKE_LFLAGS += -L../lib -lxavna
 QMAKE_CXXFLAGS += -Wextra -std=c++11
-QMAKE_CXXFLAGS += -DEIGEN_DONT_VECTORIZE -DEIGEN_DISABLE_UNALIGNED_ARRAY_ASSERT
+QMAKE_CXXFLAGS += -DEIGEN_DONT_VECTORIZE -DEIGEN_DISABLE_UNALIGNED_ARRAY_ASSERT -I/opt/homebrew/Cellar/eigen/3.4.0_1/include/ -I/opt/homebrew/Cellar/fftw/3.3.10_1/include/
 android: QMAKE_CXXFLAGS += -I../android_include -DANDROID_WORKAROUNDS
 
 TARGET = vna_qt
@@ -92,7 +92,7 @@ DISTFILES += languages/vna_qt_zh.ts
 RESOURCES += \
     resources.qrc
 
-LIBS += -L$$PWD/../libxavna/.libs/ -L/usr/local/lib/ -lxavna -lfftw3 -lpthread
+LIBS += -L$$PWD/../libxavna/.libs/ -L/usr/local/lib/ -L/opt/homebrew/Cellar/fftw/3.3.10_1/lib/ -lxavna -lfftw3 -lpthread
 android: LIBS += -L$$PWD/../lib
 
 win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../libxavna/xavna_mock_ui/release/ -lxavna_mock_ui
